@@ -1,0 +1,6 @@
+{
+    "editor.hover.enabled": true,
+    "editor.mouseWheelZoom": true,
+    "workbench.editor.closeEmptyGroups": false,
+    "editor.formatOnSave": false
+}
