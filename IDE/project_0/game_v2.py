@@ -13,7 +13,7 @@ def random_predict(number:int=1) -> int:
     """
     
 
-    #* Количество попыток
+    #*Количество попыток
     count=0
 
     while True:
