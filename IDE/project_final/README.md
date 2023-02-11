@@ -1,4 +1,6 @@
-# Проект 0. Угадай число
+# Модуль 8. Инструменты для Data Scince.
+# 8. Итоги. Финальное задание
+# Угадай число за минимальное количество попыток.
 
 ## Оглавление  
 [1. Описание проекта](https://github.com/Nagliy777/sf_data_science/blob/main/IDE/project_final/README.md#Описание-проекта)  
@@ -9,13 +11,13 @@
 [6. Выводы](https://github.com/Nagliy777/sf_data_science/blob/main/IDE/project_final/README.md#Выводы) 
 
 ### Описание проекта    
-Угадать загаданное компьютером число за минимальное число попыток.
+Угадать загаданное компьютером число меньше чем за 20 попыток.
 
-:arrow_up:[к оглавлению](_)
+:arrow_up:[к оглавлению](https://github.com/Nagliy777/sf_data_science/blob/main/IDE/project_final/README.md#Оглавление)
 
 
 ### Какой кейс решаем?    
-Нужно написать программу, которая угадывает число за минимальное число попыток
+Нужно написать программу, которая угадывает число меньше чем за 20 попыток.
 
 **Условия соревнования:**  
 - Компьютер загадывает целое число от 0 до 100, и нам его нужно угадать. Под «угадать», подразумевается «написать программу, которая угадывает число».
@@ -25,31 +27,34 @@
 Результаты оцениваются по среднему количеству попыток при 1000 повторений
 
 **Что практикуем**     
-Учимся писать хороший код на python
+Учимся писать хороший код на Python.
+Учимся работать с IDE.
+Учимся работать с GitHub.
 
 
 ### Краткая информация о данных
 ....
   
-:arrow_up:[к оглавлению](.README.md#Оглавление)
+:arrow_up:[к оглавлению](https://github.com/Nagliy777/sf_data_science/blob/main/IDE/project_final/README.md#Оглавление)
 
 
 ### Этапы работы над проектом  
 ....
 
-:arrow_up:[к оглавлению](.README.md#Оглавление)
+:arrow_up:[к оглавлению](https://github.com/Nagliy777/sf_data_science/blob/main/IDE/project_final/README.md#Оглавление)
 
 
 ### Результаты:  
-....
+Код размещён [по ссылке](https://github.com/Nagliy777/sf_data_science/blob/main/IDE/project_final/game_v3.py)
 
-:arrow_up:[к оглавлению](.README.md#Оглавление)
+:arrow_up:[к оглавлению](https://github.com/Nagliy777/sf_data_science/blob/main/IDE/project_final/README.md#Оглавление)
 
 
 ### Выводы:  
-....
+Алгоритм угадывает число в среднем за 16 попыток, что соответствует требованию задания.
+В [Jupyter Notebook](https://github.com/Nagliy777/sf_data_science/blob/main/IDE/project_final/game_v3.ipynb) можно ознакомиться с результатом алгоритма.
 
-:arrow_up:[к оглавлению](.README.md#Оглавление)
+:arrow_up:[к оглавлению](https://github.com/Nagliy777/sf_data_science/blob/main/IDE/project_final/README.md#Оглавление)
 
 
 Если информация по этому проекту покажется вам интересной или полезной, то я буду очень вам благодарен, если отметите репозиторий и профиль ⭐️⭐️⭐️-дами

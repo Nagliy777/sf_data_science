@@ -23,18 +23,20 @@ def game_core_v3(number: int = 1) -> int:
          
         if number == predict_number:            
             break  # выход из цикла если угадали
+        
         elif number > predict_number:
-            predict_number += 1
+            predict_number += 1 # если загаданное число больше, чем предполагаемое
             if number == predict_number:
                 break  # выход из цикла если угадали
             elif number > predict_number:
-                predict_number += 1
+                predict_number += 1 # если загаданное число больше, чем предполагаемое
+                
         elif number < predict_number:
-          predict_number -= 1
+          predict_number -= 1 # если загаданное число меньше, чем предполагаемое
           if number == predict_number:
               break  # выход из цикла если угадали
           elif number < predict_number:
-                predict_number -= 1
+                predict_number -= 1 # если загаданное число меньше, чем предполагаемое
               
     return count
     
