@@ -33,13 +33,18 @@
 
 
 ### Краткая информация о данных
-....
+1.def game_core_v3(number: int = 1) -> int: функция угадывания. 
+2.def score_game(game_core_v3) -> int: функция определения среднего количества угадываний за 1000 подходов.
+3.Переменная "random_array" принимает загаданный список чисел.
+4.Переменная "number" загаданное число из списка. чисел.
   
 :arrow_up:[к оглавлению](https://github.com/Nagliy777/sf_data_science/blob/main/IDE/project_final/README.md#Оглавление)
 
 
 ### Этапы работы над проектом  
-....
+1.Написать код для функции угадывания таким образом, чтобы количество попыток угадывания было меньше 20.
+2.Написать код для функции определения среднего количества угадываний за 1000 подходов.
+3.Результат вывести в Jupyter Notebook.
 
 :arrow_up:[к оглавлению](https://github.com/Nagliy777/sf_data_science/blob/main/IDE/project_final/README.md#Оглавление)
 
@@ -52,7 +57,7 @@
 
 ### Выводы:  
 Алгоритм угадывает число в среднем за 16 попыток, что соответствует требованию задания.
-В [Jupyter Notebook](https://github.com/Nagliy777/sf_data_science/blob/main/IDE/project_final/game_v3.ipynb) можно ознакомиться с результатом алгоритма.
+В Jupyter Notebook [можно ознакомиться с результатом алгоритма](https://github.com/Nagliy777/sf_data_science/blob/main/IDE/project_final/game_v3.ipynb)
 
 :arrow_up:[к оглавлению](https://github.com/Nagliy777/sf_data_science/blob/main/IDE/project_final/README.md#Оглавление)
 
