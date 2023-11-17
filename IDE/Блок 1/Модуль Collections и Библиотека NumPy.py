@@ -39,7 +39,7 @@ cars_moscow = ['black', 'black', 'white', 'black', 'black', 'white', 'yellow', '
 cars_spb = ['red', 'black', 'black', 'white', 'white', 'yellow', 'yellow', 'red', 'white']
 
 counter_moscow = Counter(cars_moscow)
-counter_spb = Counter(cars_spb)
+counter_spb = Counter(cars_spb) 
  
 print(counter_moscow)  ---> Counter({'black': 4, 'yellow': 3, 'white': 2})
 print(counter_spb) ---> Counter({'white': 3, 'red': 2, 'black': 2, 'yellow': 2})
