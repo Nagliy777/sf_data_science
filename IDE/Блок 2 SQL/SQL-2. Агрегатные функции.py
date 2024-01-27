@@ -116,3 +116,99 @@ GROUP BY pokemon_type
 ORDER BY COUNT(*) DESC
 
 #todo Использовали в группировке не название столбца, а его алиас.
+
+SELECT
+    type2 AS pokemon_type,
+    COUNT(*) AS additional_types_count
+    AVG(hp) AS avg_hp
+    SUM(attack) AS attack_sum
+FROM sql.pokemon
+GROUP BY type2
+ORDER BY type2, type1 DESC, ASK
+
+
+#todo Напишите запрос, который выведет:
+
+#todo число различных дополнительных типов (столбец additional_types_count),
+#todo среднее число очков здоровья (столбец avg_hp),
+#todo сумму показателей атаки (столбец attack_sum) в разбивке по основным типам (столбец primary_type).
+#todo Отсортируйте результат по числу дополнительных типов в порядке убывания, при равенстве — по основному
+#todo типу в алфавитном порядке. Столбцы к выводу (обратите внимание на порядок!): primary_type,
+#todo additional_types_count, avg_hp, attack_sum.
+
+SELECT
+     type1 AS primary_type,
+    COUNT(DISTINCT type2) AS additional_types_count,
+    AVG(hp) AS avg_hp,
+    SUM(attack) AS attack_sum
+FROM sql.pokemon
+GROUP BY type1
+ORDER BY additional_types_count DESC, type1 ASC
+
+#todo Мы можем осуществлять группировку по нескольким столбцам.
+
+SELECT
+    type1 AS primary_type,
+    type2 AS additional_type,
+    COUNT(*) AS pokemon_count
+FROM sql.pokemon
+GROUP BY 1, 2
+ORDER BY 1, 2 NULLS FIRST
+
+#todo  В группировке можно указывать порядковый номер столбца так же, как мы
+#todo делали это в прошлом модуле для сортировки.
+
+#todo GROUP BY можно использовать и без агрегатных функций. Тогда его действие будет
+#todo равносильно действию DISTINCT.
+
+SELECT DISTINCT              SELECT
+    type1                         type1 
+FROM sql.pokemon             FROM sql.pokemon
+                             GROUP BY type1
+                             
+                             
+#? Фильтрация агрегированных строк                 
+
+#todo Если ключевое слово WHERE определяет фильтрацию строк до агрегирования, то для фильтрации
+#todo уже агрегированных данных применяется ключевое слово HAVING.
+
+#todo HAVING обязательно пишется после GROUP BY.
+
+#* Выведем типы покемонов и их средний показатель атаки, при этом оставим только тех, у кого
+#* средняя атака больше 90.   
+
+SELECT
+    type1 AS primary_type,
+    AVG(attack) AS avg_attack
+FROM sql.pokemon
+GROUP BY primary_type 
+HAVING AVG(attack) > 90
+
+#* В HAVING можно использовать все те же условия, что и в WHERE.    
+
+#todo В квадратных скобках указаны необязательные предложения: они могут отсутствовать в операторе SELECT.
+#todo Структура:
+SELECT [ALL | DISTINCT] список_столбцов|*
+FROM список_имён_таблиц
+[WHERE условие_поиска]
+[GROUP BY список_имён_столбцов]
+[HAVING условие_поиска]
+[ORDER BY имя_столбца [ASC | DESC],…]
+
+
+#todo Напишите запрос, который выведет основной и дополнительный типы покемонов (столбцы
+#todo primary_type и additional_type) для тех, у кого средний показатель атаки больше 100
+#todo и максимальный показатель очков здоровья меньше 80.
+
+SELECT DISTINCT 
+    type1 AS primary_type,
+    type2 AS additional_type
+FROM sql.pokemon
+group by type1, type2
+having AVG(attack) > 100 AND MAX(HP) < 80    
+
+
+
+                
+      
+
