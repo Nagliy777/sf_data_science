@@ -8,7 +8,8 @@
 
 #* Чтобы соединить две таблицы между собой, достаточно записать названия таблиц через запятую в разделе from.
 #* Каждая запись, которая есть в таблице teams, будет соединена с каждой записью в таблице matches.
-#* Это действие также называют декартовым произведением таблиц. 
+#* Это действие также называют декартовым произведением таблиц.
+
 
 SELECT *
 FROM
@@ -266,3 +267,153 @@ JOIN sql.teams t ON t.api_id = m.away_team_api_id
 group by t.id
 having count(t.long_name) >= 150
 order by t.long_name
+
+#! Способы соединения таблиц
+
+#? ОПЕРАТОРЫ
+#todo существует несколько различных видов соединений (join’ов)
+
+#* Для INNER JOIN работает следующее правило: присоединяются только те строки таблиц, которые
+#* удовлетворяют условию соединения. Если в любой из соединяемых таблиц находятся такие строки,
+#* которые не удовлетворяют заявленному условию, — они отбрасываются.
+
+SELECT*
+FROM sql.matches m
+JOIN sql.teams t ON t.api_id = m.away_team_api_id
+
+#? LEFT OUTER JOIN И RIGHT OUTER JOIN
+
+#* Для LEFT JOIN работает следующее правило: из левой (относительно оператора) таблицы сохраняются
+#* все строки, а из правой добавляются только те, которые соответствуют условию соединения. Если в
+#* правой таблице не находится соответствия, то значения строк второй таблицы будут иметь значение NULL.
+
+SELECT
+    t.long_name,
+    m.id
+FROM sql.teams t
+LEFT JOIN sql.matches m ON t.api_id = m.home_team_api_id OR t.api_id = m.away_team_api_id
+ORDER BY m.id DESC
+
+#todo Вывод: в таблице teams сохранились все записи, а в таблице matches есть пустые строки.
+
+#* Теперь, чтобы выбрать такие команды, которые не принимали участия в матчах, достаточно
+#* добавить условие where m.id is null (или любое другое поле таблицы matches).
+
+SELECT
+    t.long_name
+FROM 
+    sql.teams t
+LEFT JOIN sql.matches m ON t.api_id = m.home_team_api_id OR t.api_id = m.away_team_api_id
+WHERE m.id IS NULL
+
+#* Если мы добавим какой-либо фильтр по отличному от NULL значению для таблицы matches,
+#* то LEFT JOIN превратится в INNER JOIN, поскольку для второй таблицы станет необходимым
+#* присутствие такого (NOT NULL) значения в строке.
+
+
+#todo Используя LEFT JOIN, выведите список уникальных названий команд, содержащихся в таблице matches.
+#todo Отсортируйте список в алфавитном порядке.
+
+SELECT
+    distinct t.long_name
+    
+    FROM sql.matches m 
+LEFT JOIN sql.teams t ON t.api_id = m.home_team_api_id OR t.api_id = m.away_team_api_id
+order by t.long_name
+
+
+#todo С LEFT JOIN также работают агрегатные функции, что позволяет не потерять значения из левой таблицы.
+#todo Например, мы можем вывести сумму голов команд по гостевым матчам.
+
+SELECT
+    t.long_name,
+    SUM(m.away_team_goals) total_goals
+FROM   
+    sql.teams t
+LEFT JOIN sql.matches m ON t.api_id = m.away_team_api_id
+GROUP BY t.id
+ORDER BY 2 DESC
+
+#todo При использовании RIGHT JOIN сохраняется та же логика, что и для LEFT JOIN, только
+#todo за основу берётся правая таблица. Чтобы из LEFT JOIN получить RIGHT JOIN, нужно просто
+#todo поменять порядок соединения таблиц.
+#todo Вообще, применение RIGHT JOIN считается плохим тоном, так как язык SQL читается и пишется слева направо,
+#todo а такой оператор усложняет чтение запросов.
+
+#? FULL OUTER JOIN
+
+#todo Оператор FULL OUTER JOIN объединяет в себе LEFT и RIGHT JOIN и позволяет сохранить кортежи обеих таблиц.
+#todo Даже если не будет соответствий, мы сохраним все записи из обеих таблиц.FULL OUTER JOIN может быть
+#todo полезен в ситуациях, когда схема данных недостаточно нормализована и не хватает таблиц-справочников.
+
+SELECT 
+…
+FROM
+	table1
+FULL OUTER JOIN table2 ON условие
+
+#? CROSS JOIN соединяет таблицы так, что каждая запись в первой таблице присоединяется к каждой записи
+#? во второй таблице, иначе говоря, даёт декартово произведение.
+
+#todo Одно и тоже
+SELECT *                SELECT *
+FROM                      FROM
+    sql.teams,             sql.teams
+    sql.matches             CROSS JOIN sql.matches
+    
+#todo Условие для CROSS JOIN, в отличие от других операторов, не требуется.
+
+#todo Пример
+#* Напишите запрос, который выведет все возможные уникальные комбинации коротких названий домашней команды
+#* (home_team) и коротких названий гостевой команды (away_team). Команда не может сама с собой играть,
+#* то есть быть и домашней, и одновременно гостевой (в одном и том же матче). Отсортируйте запрос по
+#* первому и второму столбцам.
+
+SELECT
+     distinct 
+     t.short_name  home_team,
+    h.short_name  away_team
+FROM   
+    sql.teams t
+    CROSS join sql.teams h 
+WHERE t.id != h.id
+ORDER BY 1, 2
+
+#? NATURAL JOIN
+
+#* Ключевое слово natural в начале оператора JOIN позволяет не указывать условие соединения таблиц — 
+#* для соединения будут использованы столбцы с одинаковым названием из этих таблиц.
+
+NATURAL JOIN можно использовать с любыми видами соединений, которые требуют условия соединения:
+
+→ NATURAL INNER JOIN (возможна запись NATURAL JOIN);
+→ NATURAL LEFT JOIN;
+→ NATURAL RIGHT JOIN;
+→ NATURAL FULL OUTER JOIN.
+
+#todo запрос
+
+SELECT 
+…
+FROM          table1 NATURAL JOIN table2
+
+#todo  будет равнозначен запросу
+
+SELECT
+…
+FROM          table1 t1
+INNER JOIN table2 t2 ON t1.id = t2.id AND t1.name = t2.name
+
+#todo Пример 
+#* Выведите количество матчей между командами Real Madrid CF и FC Barcelona. В поле ниже введите
+#* запрос, с помощью которого вы решили задание.
+
+SELECT
+count(m.id)
+
+FROM   
+    sql.matches m
+    join sql.teams t on t.api_id = m.away_team_api_id
+    join sql.teams k on k.api_id = m.home_team_api_id
+where (t.long_name = 'Real Madrid CF' and k.long_name = 'FC Barcelona') 
+or (t.long_name = 'FC Barcelona' and k.long_name = 'Real Madrid CF')
