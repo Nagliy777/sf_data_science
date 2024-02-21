@@ -1,47 +1,58 @@
-# PROJECT-1. Анализ резюме из HeadHunter
+# PROJECT-2. Анализ вакансий из HeadHunter
 
 ## Оглавление  
-[1. Описание проекта](https://github.com/Nagliy777/sf_data_science/tree/main/Проекты/PROJECT-1.%20Анализ%20резюме%20из%20HeadHunter/README.md#Описание-проекта)  
-[2. Этапы работы над проектом](https://ggithub.com/Nagliy777/sf_data_science/tree/main/Проекты/PROJECT-1.%20Анализ%20резюме%20из%20HeadHunter/README.md#Этапы-работы-над-проектом)  
-[3. Краткая информация о данных](https://github.com/Nagliy777/sf_data_science/tree/main/Проекты/PROJECT-1.%20Анализ%20резюме%20из%20HeadHunter/README.md#Краткая-информация-о-данных)  
-[4. Результаты](https://github.com/Nagliy777/sf_data_science/tree/main/Проекты/PROJECT-1.%20Анализ%20резюме%20из%20HeadHunter/README.md#Результаты)    
-[5. Выводы](https://github.com/Nagliy777/sf_data_science/tree/main/Проекты/PROJECT-1.%20Анализ%20резюме%20из%20HeadHunter/README.md#Выводы) 
+[1. Описание проекта](https://github.com/Nagliy777/sf_data_science/blob/main/Проекты/PROJECT-2.%20Анализ%20вакансий%20из%20HeadHunter/README.md#Описание-проекта)  
+[2. Этапы работы над проектом](https://github.com/Nagliy777/sf_data_science/blob/main/Проекты/PROJECT-2.%20Анализ%20вакансий%20из%20HeadHunter/README.md#Этапы-работы-над-проектом)  
+[3. Краткая информация о данных](https://github.com/Nagliy777/sf_data_science/blob/main/Проекты/PROJECT-2.%20Анализ%20вакансий%20из%20HeadHunter/README.md#Краткая-информация-о-данных)  
+[4. Результаты](https://github.com/Nagliy777/sf_data_science/blob/main/Проекты/PROJECT-2.%20Анализ%20вакансий%20из%20HeadHunter/README.md#Результаты)    
+[5. Выводы](https://github.com/Nagliy777/sf_data_science/blob/main/Проекты/PROJECT-2.%20Анализ%20вакансий%20из%20HeadHunter/README.md#Выводы) 
 
 ### Описание проекта    
-Компания HeadHunter хочет построить модель, которая бы автоматически определяла примерный уровень заработной платы, подходящей пользователю, исходя из информации, которую он указал о себе.
+ Представьте, что вы устроились на работу в кадровое агентство, которое подбирает вакансии для IT-специалистов. Ваш первый проект — создание модели машинного обучения, которая будет рекомендовать вакансии клиентам агентства, претендующим на позицию Data Scientist. Сначала вам необходимо понять, что из себя представляют данные и насколько они соответствуют целям проекта.
 
-:arrow_up:[к оглавлению](https://github.com/Nagliy777/sf_data_science/tree/main/Проекты/PROJECT-1.%20Анализ%20резюме%20из%20HeadHunter/README.md#Оглавление)
+:arrow_up:[к оглавлению](//github.com/Nagliy777/sf_data_science/blob/main/Проекты/PROJECT-2.%20Анализ%20вакансий%20из%20HeadHunter/README.md#Оглавление)
 
 
 ### Этапы работы над проектом  
 
-- 1.Базовый анализ структуры данных
-- 2.Преобразование данных
-- 3.Разведывательный анализ
-- 4.Очистка данных
+- 1.Знакомство с данными;
+- 2.Предварительный анализ данных;
+- 3.Детальный анализ вакансий;
+- 4.Анализ работодателей;
+- 5.Предметный анализ.
 
-:arrow_up:[к оглавлению](https://github.com/Nagliy777/sf_data_science/tree/main/Проекты/PROJECT-1.%20Анализ%20резюме%20из%20HeadHunter/README.md#Оглавление)
+:arrow_up:[к оглавлению](//github.com/Nagliy777/sf_data_science/blob/main/Проекты/PROJECT-2.%20Анализ%20вакансий%20из%20HeadHunter/README.md#Оглавление)
 
 ### Краткая информация о данных
-Датафрейм на начальном этапе имеет 44744 строк и 12 столбцов.
+Имеется 5 таблиц:
+1. VACANCIES - Таблица хранит в себе данные по вакансиям и содержит следующие столбцы:
+![alt text](asset-v1_SkillFactory+DST-3.0+28FEB2021+type@asset+block@SQL_pj2_2_2.png)
 
-Файл с исходными данными вы можете скачать [здесь](https://drive.google.com/drive/folders/1YUf2ECsAfsEnUHzwduoy2Jj-8ksXDwRl)
+2.AREAS - Таблица-справочник, которая хранит код региона и его название.е.
+
+3.EMPLOYERS - Таблица-справочник со списком работодателей.
+
+4.INDUSTRIES - Таблица-справочник вариантов сфер деятельности работодателей.
+
+5.EMPLOYERS_INDUSTRIES - Дополнительная таблица, которая существует для организации связи между работодателями и сферами их деятельности.
+
   
-:arrow_up:[к оглавлению](https://github.com/Nagliy777/sf_data_science/tree/main/Проекты/PROJECT-1.%20Анализ%20резюме%20из%20HeadHunter/README.md#Оглавление)
+:arrow_up:[к оглавлению](https://github.com/Nagliy777/sf_data_science/blob/main/Проекты/PROJECT-2.%20Анализ%20вакансий%20из%20HeadHunter/README.md#Оглавление)
 
 
 ### Результаты:  
-Проект размещён [по ссылке](https://github.com/Nagliy777/sf_data_science/blob/main/Проекты/PROJECT-1.%20Анализ%20резюме%20из%20HeadHunter/PROJECT-1.%20Анализ%20резюме%20из%20HeadHunter.ipynb)
+Проект размещён [по ссылке](github.com/Nagliy777/sf_data_science/blob/main/Проекты/PROJECT-2.%20Анализ%20вакансий%20из%20HeadHunter/Project_2.ipynb)
 
-:arrow_up:[к оглавлению](https://github.com/Nagliy777/sf_data_science/tree/main/Проекты/PROJECT-1.%20Анализ%20резюме%20из%20HeadHunter/README.md#Оглавление)
+:arrow_up:[к оглавлению](https://github.com/Nagliy777/sf_data_science/blob/main/Проекты/PROJECT-2.%20Анализ%20вакансий%20из%20HeadHunter/README.md#Оглавление)
 
 
 ### Выводы:  
-- 1.Проведён базовый анализ структуры данных
-- 2.Данные преобразованы
-- 3.Совершён разведывательный анализ
-- 4.Данные очищены
-По итогу в таблице находится 44485 строк и 23 столбцов.
+- 1.Данные изучил;
+- 2.Произведён предварительный анализ данных; 
+- 3.Произведён детальный анализ вакансий;
+- 4.Произведён анализ работодателей;
+- 5.Произведён предметный анализ.
+
 
 :arrow_up:[к оглавлению](https://github.com/Nagliy777/sf_data_science/tree/main/Проекты/PROJECT-1.%20Анализ%20резюме%20из%20HeadHunter/README.md#Оглавление)
 
