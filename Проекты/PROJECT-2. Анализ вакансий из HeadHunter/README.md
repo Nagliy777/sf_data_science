@@ -41,7 +41,7 @@
 
 
 ### Результаты:  
-Проект размещён [по ссылке](github.com/Nagliy777/sf_data_science/blob/main/Проекты/PROJECT-2.%20Анализ%20вакансий%20из%20HeadHunter/Project_2.ipynb)
+Проект размещён [по ссылке](https://github.com/Nagliy777/sf_data_science/blob/main/Проекты/PROJECT-2.%20Анализ%20вакансий%20из%20HeadHunter/Project_2.ipynb)
 
 :arrow_up:[к оглавлению](https://github.com/Nagliy777/sf_data_science/blob/main/Проекты/PROJECT-2.%20Анализ%20вакансий%20из%20HeadHunter/README.md#Оглавление)
 
